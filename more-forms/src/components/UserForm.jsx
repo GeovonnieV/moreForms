@@ -1,10 +1,11 @@
 import React from 'react';
 
-const UserForm = () => {
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+const UserForm = (setFirstName,setLastName,setEmail,setPassword) => {
+ 
+    // gets the events target value and updates the firstnames state with it
+    const handleFirstName = (e) => {
+        setFirstName(e.target.value)
+    }
 
     return (        
        <div>
@@ -12,11 +13,11 @@ const UserForm = () => {
            <form>
                <div>
                 <label>First Name: </label>
-                <input type="text" name="firstName"/>
+                <input type="text" name="firstName" onChange={handleFirstName} />
                </div>
                <div>
                 <label>Last Name: </label>
-                <input type="text" name="lastName"/>
+                <input type="text" name="lastName" onChange={(e) => setLastName(e.target.value)}  />
                </div>
                <div>
                 <label>Email: </label>
